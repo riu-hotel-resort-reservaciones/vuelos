@@ -1,0 +1,20 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[589],{50589:function(t,e,a){a.r(e),a.d(e,{default:function(){return T}});var i=a(67294),n=a(93633),r=a(61679),d=a(27057),s=a(6075),o=a(35944);const l=({vg_widget:t,id:e})=>{const a=s&&s.default[t];return""!==t?(0,o.tZ)("div",{className:"py-2",children:(0,o.tZ)(a,{lazy:!1,params:{id:e}})}):(0,o.tZ)(o.HY,{})},g={airline:"CustomPricingWidget",hospitality:"StandardFareModuleHospitality",packages:"DPAVacations",vacations:"DPAVacations"},c={offers:"PromoOffersWidget",routes:"RouteStatus"},m={offers:t=>`<div vg_widget='PromoOffersWidget' id=${t}></div>`,routes:t=>`<div vg_widget='RouteStatus' id=${t}></div>`},p=t=>g[t]||"",u=t=>c[t]||"",v=t=>({"em-cmp-lib-airmodules-components__fare-daily-histogram":"FareDailyHistogram","em-cmp-lib-airmodules-components__fare-monthly-histogram":"FareMonthlyHistogram","em-cmp-lib-airmodules-components__fare-monthly-histogram-mobile":"FareMonthlyHistogramMobile"}[t.split("--")[0]]||""),h=/(#%#PRICE_WIDGET).(.*?).([a-z0-9]+)(#%#)/g,_=/(#%#PROMO_WIDGET).(.*?).([a-z0-9]+)(#%#)/g,f=/(#%#INTERLINKING_MODULE).(.*?).([a-z0-9]+)(#%#)/g,y=/(#%#destination_accordion#%#)/g,D=/(#%#em-cmp-lib-airmodules-components__flights-booking)--([a-z0-9]+)(#%#)/g,Z=(t,e,a,i,n)=>{var r;return((t,e,a)=>m[t]&&m[t](a)||e)(null===(r=t[n])||void 0===r?void 0:r.type,e,n)};var w=({modules:t=[],metaData:e={},industry:a=""})=>{const i=p(a);return(0,o.tZ)(o.HY,{children:t&&t.map((({id:t,type:a,content:n,widgetContent:s,shouldFetchTravelFacts:g,arg:c,preflightClasses:m=!0})=>{if("ASSET"===a&&n){let t="";return t+=n.replace(h,`<div vg_widget="${i}" id=$3 ></div>`).replace(_,Z.bind(void 0,e)).replace(y,'<div vg_widget="DestinationRoutes" ></div>').replace(D,'<div vg_widget="FlightsBooking" id=$3 ></div>').replace(f,'<div vg_widget="InterlinkRoutes" id=$3 ></div>'),t=(0,d.TU)(t),((t,e=!0)=>(0,o.tZ)("article",{className:e?"__psc":void 0,children:(0,d.rg)(t,{renderWidget:l,preflightClasses:e})}))(t,m)}return"WIDGET"===a&&t&&s&&"object"===typeof s?(0,o.tZ)(r.Z,{id:t,widgetContent:s,shouldFetchTravelFacts:g},t):"DPA"===a&&t&&c?l({id:t,vg_widget:p(c)}):"FPA"===a&&t&&c?l({id:t,vg_widget:u(c)}):"AIRMODULE"===a&&t?l({id:t,vg_widget:v(t)}):(0,o.tZ)(o.HY,{})}))})},b=a(47428),C=a(79647),E=a(46323),F=a(50959),I=a(2907);const P=a(91642).Ps`
+  query GetCampaign($page: PageInput!, $id:String!) {
+    campaign(page:$page, id:$id){
+      containers{
+        id
+        name
+        modules{
+          id
+          type
+          content
+          widgetContent
+          shouldFetchTravelFacts
+          arg
+        }
+      }
+      metaData
+      enableLazyLoad
+  }
+}
+`;var $=a(95573),k=a(41075);const M=({page:{tenant:t,slug:e,siteEdition:a}})=>({tenant:t,slug:e,siteEdition:a});var T=t=>{const{params:{id:e}}=t,{pageInfo:{industry:a=""}={}}=(0,i.useContext)(b.Z),{data:r,loading:d,error:s}=(0,n.a)(F.wn),{data:l,loading:g,error:c}=(0,n.a)(P,{skip:!r,variables:{page:r&&M(r),id:e}});if(s||c||!l){const t=!s&&!c&&!l,a={page:{error:s,hasData:!!r},campaign:{error:c,hasData:!!l}};return(0,$.Z)("Campaign",a,{id:e,isMissingData:t}),null}const{campaign:{containers:m,metaData:p={},enableLazyLoad:u}}=l,v=m&&m.length>0;return v?(0,o.BX)(C.Z,{apply:u,children:[(0,o.tZ)(I.Z,{}),(0,o.tZ)(E.Z,{children:(0,o.tZ)(k.Z,{children:v&&m.map((t=>{const{id:e,modules:i}=t||{};return(0,o.tZ)(w,{id:e,modules:i,metaData:p,industry:a},e)}))})})]}):((0,$.Z)("Campaign",{containers:{hasData:!1}},{id:e,isMissingData:!0}),null)}}}]);

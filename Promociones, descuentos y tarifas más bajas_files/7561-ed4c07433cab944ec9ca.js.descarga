@@ -1,0 +1,397 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[7561],{50947:function(e,t,n){n.d(t,{P:function(){return o}});var r=n(91642);const o={headtags:r.Ps`
+      fragment HeadTags on PageMetadata {
+        headTag {
+          title
+          hasAggregateOfferSchema
+          description
+          keywords
+          image
+          robots  
+          favicon
+          canonical {
+            url
+            alternate {
+              url
+              hreflang
+            }
+          }
+          contentLanguage
+        }
+      }
+  `,pageContext:r.Ps`
+      fragment PageContext on PageContext {       
+              type
+              airline {
+                  code
+                  name
+              }
+                geo {
+                    language {
+                            lang
+                            languageBeforeMarket
+                            separator
+                            siteEditionLanguage
+                            siteEditionMarket
+                            site_edition
+                            site_edition_country_geo_id
+                            uppercaseLanguage
+                            uppercaseMarket
+                            textDirection
+                    }
+                    location {
+                        destination_geo_id
+                        level_destination
+                        level_origin
+                        origin_geo_id
+                        user_input_destination_airport_code
+                        user_input_destination_city_name
+                        user_input_destination_country_name
+                        user_input_origin_airport_code
+                        user_input_origin_city_name
+                        user_input_origin_country_name
+                        user_input_origin_state_name
+                        user_input_destination_state_name
+                        origin_city_preposition_from
+                        origin_state_preposition_from
+                        origin_country_preposition_from
+                        destination_city_preposition_from
+                        destination_state_preposition_from
+                        destination_country_preposition_from
+                        origin_city_preposition_to
+                        origin_state_preposition_to
+                        origin_country_preposition_to
+                        destination_city_preposition_to
+                        destination_state_preposition_to
+                        destination_country_preposition_to
+                        level_property
+                        user_input_property_code
+                        user_input_property_name
+                        user_input_property_city_name
+                        user_input_property_country_name
+                        user_input_property_country_code
+                        user_input_property_state_name
+                        user_input_property_region_name                
+                    }
+                }
+                datasource {
+                        step
+                        variables
+                        hostname
+                        pathname
+                        referrer
+                        type
+                        url
+                        template_id
+                }
+                audience {
+                        browser
+                        device_category
+                        language
+                        city
+                        country
+                }
+                extra_info {
+                    airports {
+                        origin
+                        destination
+                    }
+                    route  {
+                        status
+                    }
+                    properties{
+                      codes
+                    }
+                }
+                dynamicContext {
+                  budgetMaximumAmount
+                  budgetRedemptionUnit
+                  isRedemption
+                  passengerCount
+                  productCategory
+                  productType
+                  isFlexibleDates
+                  discountCode
+                  departureDate
+                  returnDate
+                  originLocation
+                  destinationLocation
+                  originLocations
+                  destinationLocations
+                  defaultMonth
+                  experience {
+                      name
+                      type
+                    }
+                  event {
+                      location
+                      date
+                      session
+                      time
+                  }
+                }        
+      }
+`}},50959:function(e,t,n){n.d(t,{eO:function(){return i},eX:function(){return a},wn:function(){return s},qc:function(){return u},D4:function(){return c},Kr:function(){return p},mo:function(){return l},Be:function(){return g},Ud:function(){return d},kS:function(){return m},Y0:function(){return f}});var r=n(91642),o=n(50947);const i=r.Ps`
+  query GetHeader_layout($page: PageInput!) {
+    layout(page : $page){
+      header {
+        logo {
+          link
+          desktop
+          mobile
+        }
+        mainMenu {
+          url
+          name
+          html
+          subMenu {
+            url
+            name
+            html
+          }
+        }
+        secondaryMenu {
+          url
+          name
+          html
+          subMenu {
+            url
+            name
+            html
+          }
+        }
+        layoutSettings {
+          variation
+          topSectionAlignment
+          bottomSectionAlignment
+          mainSectionAlignment
+          menuIconAlignment
+          isFullWidth
+          isLanguageToggleEnabled
+          mobileLogoAlignment
+          showMainNavigationIcons
+          showLanguageToggleFlags
+          desktopLogoWidth
+          mobileLogoWidth
+          mainOpenNewTab
+          secondaryOpenNewTab
+        }
+      }    
+    }
+  }
+`,a=r.Ps`
+  query GetFooter_layout($page: PageInput!) {
+    layout(page : $page){
+      footer {
+        layoutSettings {
+          variation
+          topSectionAlignment
+          bottomSectionAlignment
+          useAccordionOnMobile
+          socialMediaIconHasBorder       
+          isSocialMediaIconFilled
+          socialMediaIconSizeLarge
+          socialMediaIconSizeSmall
+        }
+        mainMenu {
+          name
+          href
+          openNewTab
+          includeExternalLinkIcon
+          subMenu {
+            url
+            name
+            html
+            openNewTab
+            includeExternalLinkIcon
+          }
+        }
+        appSection{
+          title
+          apps{
+            name
+            href
+            iconUrl
+            altText
+            openNewTab
+        }
+      }
+        socialSection
+        imagesSection {
+          images {
+            src
+            altText
+            href
+            openNewTab
+          }
+        }
+        copyrightSection
+        logosSection
+      }
+    }
+  }
+`,s=r.Ps`
+{
+  page @client{
+    tenant
+    siteEdition
+    slug
+    pageType
+    pageNumber
+    deviceType
+    languageCode  
+    queryParams
+  }
+}`,u=r.Ps` 
+ query GetBestOffer($page: PageInput!) {
+    lowestFare(page:$page){
+       formattedTotalPrice
+       currencyCode
+       fullPrice
+       totalPrice
+    }   
+  }  
+`,c=r.Ps`
+  query GetLabels($page: PageInput!) {
+    labels(page: $page)  
+  }  
+ `,p=r.Ps`
+  query GetContext($page: PageInput!) {
+    pageContext(page:$page){
+      ...PageContext 
+    }
+  }
+  ${o.P.pageContext}
+`,l=r.Ps`
+  query GetDeepLink($deepLinkParams: DeepLinkInput!) {
+    deepLink(deepLinkParams: $deepLinkParams) {
+       url
+       method
+       formData
+       headers
+  },
+}
+`,g=r.Ps`
+  query GetRedirectInfo($page: RedirectInput!) {
+    redirect(page:$page){
+      fullUrl
+      protocol
+      domain
+      subfolder
+      siteEdition
+      slug
+      originalRedirectUrl
+   } 
+ }
+`,d=r.Ps`
+  query GetDocumentMetaData($page: PageInput!) {
+    pageMetadata(page: $page) {
+      headTag{
+        hasAggregateOfferSchema
+        customScript1
+        customScript2
+        customDataLayer{
+          name
+          data
+          gtm_datalayer
+          clientSideFields
+        }
+        emDataLayer{
+          airline{
+            name
+            iataCode
+          }
+          tenant{
+            name
+            code
+            type
+          }
+          product{
+            name
+          }
+          page{
+            author
+            pageName
+            url
+            hostname
+            uri
+            fullURL
+            typeName
+            languageIsoCode
+            countryIsoCode
+            siteEdition
+            dateCreated
+            countryCurrencyCode
+            typeCode
+          }
+          originCity{
+            name
+            cityCode
+          }
+          destinationCity{
+            name
+            cityCode
+          }
+          originCountry{
+            name
+            isoCode
+          }
+          destinationCountry{
+            name
+            isoCode
+          }
+          originAirport{
+            iataCode
+          }
+          destinationAirport{
+            iataCode
+          }
+          device
+          extraInfo
+          property{
+            name
+            code
+          }
+          city{
+            name
+            cityCode            
+          }
+          country{
+            name
+            isoCode            
+          }
+          region{
+            name                        
+          }
+        }
+      }
+      bodyTag {
+        customScript3
+        customScript4
+        customScript5
+      }
+    }
+    pageInfo(page: $page) {
+      languageCode
+      textDirection
+    }
+    pageTitleH1(page: $page){
+        title
+    }
+  }
+`,m=r.Ps`
+  query GetNearestOriginAirport($page: PageInput!, $geo: CoordinatesInput, $language: String, $market: String, $template: String, $product: String, $countryGeoId: String) {
+    geoLocation(page: $page, geo: $geo, language: $language, market: $market, template: $template, product: $product, countryGeoId: $countryGeoId){
+      nearestOriginAirport {
+        iataCode
+        geoId
+      }
+    }
+  }
+`,f=r.Ps`
+  query GetOrganizationAdvConfig($page: PageInput!) {
+    organizationAdvConfig(page: $page){
+        directDeeplink
+        geoLocation
+    }
+  }
+`},27057:function(e,t,n){n.d(t,{mR:function(){return z},d9:function(){return P},EP:function(){return J},Jl:function(){return M},RV:function(){return F},Ox:function(){return ee},DF:function(){return y},ep:function(){return ne},g7:function(){return E},fx:function(){return te},sk:function(){return k},yk:function(){return I},hi:function(){return x},sD:function(){return q},bJ:function(){return Z},Qr:function(){return H},RT:function(){return N},hj:function(){return G},yF:function(){return w},HD:function(){return W},Dc:function(){return $},gI:function(){return K},zO:function(){return R},Hy:function(){return Y},rg:function(){return L},U3:function(){return V},oV:function(){return B},uz:function(){return X},DD:function(){return v},TU:function(){return T},ud:function(){return S},vQ:function(){return U},SG:function(){return A},mN:function(){return D},_r:function(){return C},nt:function(){return Q}});var r=n(10219),o=n(92809),i=n(67294),a=n(4298),s=n(9008),u=n(47311),c=n(93967),p=n.n(c),l=n(83465),g=n.n(l),d=n(75934),m=n.n(d),f=n(34155);const y=(e,{quality:t=80,height:n=500,fit:r="crop",format:o="auto"})=>{if(!e)return"";if(e.includes("/media-em/"))try{const r=new URL(e);return`${f.env.USE_RELATIVE_IMGS?r.pathname:e}?height=${n}&quality=${t}&format=${o}&opt=true`}catch(i){console.error("Error when creating the image source",i)}return`https://assets.airtrfx.com/cdn-cgi/image/height=${n},quality=${t},format=${o}/${e}`};var _=n(35944);const b=["skip"];function h(e,t){var n=Object.keys(e);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(e);t&&(r=r.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),n.push.apply(n,r)}return n}function O(e){for(var t=1;t<arguments.length;t++){var n=null!=arguments[t]?arguments[t]:{};t%2?h(Object(n),!0).forEach((function(t){(0,o.Z)(e,t,n[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(n)):h(Object(n)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(n,t))}))}return e}const k=(e={},t=[])=>"object"===typeof e&&Array.isArray(t)&&t.length?Object.keys(e).reduce(((n,r)=>t.includes(r)?(n[r]=e[r],n):n),{}):{},P=e=>g()(e),v=e=>{Object.keys(e).forEach((t=>{e[t]&&"object"===typeof e[t]?v(e[t]):null==e[t]&&delete e[t]}))},C=e=>{const t=P(e);return t.toJSON=()=>null,t},w=()=>!1,$=e=>e&&Array.isArray(e.match(/.svg$/)),S=(e,t)=>{for(const n in e)n===t?delete e[n]:"object"===typeof e[n]&&S(e[n],t)},E=(e,t)=>{if(t&&t.length)return t.reduce(((t,n)=>(t[n]=(null===e||void 0===e?void 0:e[n])||n,t)),{})},T=e=>e&&e.replace(/<!--(.*?)-->/g,""),L=(e,{staticAttributes:t={},replace:n={},removeComments:r=!0,renderWidget:o,preflightClasses:c=!0}={})=>{const l={replace:({children:e,name:r,data:u,attribs:g={}})=>{if(!r)return u;if(g.vg_widget&&"function"===typeof o)return o(g);const d={style:()=>{if(null!==e&&void 0!==e&&e.length){const t=e.map((e=>e.data)).join("");return(0,_.tZ)(s.default,{children:(0,_.tZ)("style",{type:"text/css",children:t})})}},script:()=>g.src?(0,_.tZ)(a.default,{src:g.src,type:"text/javascript",onError:e=>console.error("Custom Script Error",e)},g.src):null!==e&&void 0!==e&&e.length?(0,_.tZ)(a.default,O(O({},g),{},{dangerouslySetInnerHTML:{__html:`${e[0].data}`}})):void 0};if(d[r]){const e=d[r]();if(e)return e}const m=O(O({},g),t),f=m.onclick||m.onClick;f&&(m.onClick=new Function("event",f),delete m.onclick),m.className=p()(c&&"__pfs",m.class||"",c&&!m.vg_widget&&"__bss",t.className||""),m.style&&(m.style=j(m.style)),delete m.class;const y=r;let b=null!==e&&void 0!==e&&e.length?e.map((e=>l.replace(e))):u;return"function"===typeof n[y]?n[y](m,b):i.createElement(y,m,b)}};let g=e;return r&&(g=T(e)),g&&(0,u.ZP)(g,l)},j=e=>e.split(";").filter((e=>e.split(":")[0]&&e.split(":")[1])).map((e=>[e.split(":")[0].trim().replace(/-./g,(e=>e.substr(1).toUpperCase())),e.split(":").slice(1).join(":").trim()])).reduce(((e,t)=>O(O({},e),{},{[t[0]]:t[1]})),{}),A=(e,t)=>(e&&(e=e.replace("**Flights.FromLowestPrice**",t).trim()),e),D=e=>{let t=e&&e.split("{price_modifier}").map((e=>e.trim()));return!t&&(t=[]),t},I=e=>e&&-1!==e.indexOf("{price_modifier}"),x=e=>{const t=new RegExp("\\*\\*[^*]+\\*\\*","g");return e.search(t)>=0},M=()=>{document.documentElement.style.overflow="hidden",document.body.style.overflow="hidden"},F=()=>{document.body.style.overflow="auto",document.documentElement.style.overflow="auto"},N=e=>/^([\+-]?\d{4}(?!\d{2}\b))((-?)((0[1-9]|1[0-2])(\3([12]\d|0[1-9]|3[01]))?|W([0-4]\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\d|[12]\d{2}|3([0-5]\d|6[1-6])))([T\s]((([01]\d|2[0-3])((:?)[0-5]\d)?|24\:?00)([\.,]\d+(?!:))?)?(\17[0-5]\d([\.,]\d+)?)?([zZ]|([\+-])([01]\d|2[0-3]):?([0-5]\d)?)?)?)?$/.test(e),q=e=>e&&(e.startsWith("https://")||e.startsWith("http://")||e.startsWith("//")),R=()=>window.performance&&performance.now&&performance.now()||Date.now(),G=e=>"number"===typeof e&&e===e&&e!==1/0&&e!==-1/0,W=e=>"string"===typeof e,Z=e=>e&&null!==e.match(/^[a-z0-9]+$/i),U=e=>Object.entries(e).reduce(((e,[t,n])=>null!=n?(e[t]=n,e):e),{}),z=(e,t,n)=>{const r=n=>String.prototype.split.call(t,n).filter(Boolean).reduce(((e,t)=>null!==e&&void 0!==e&&null!==e?e[t]:e),e),o=r(/[,[\]]+?/)||r(/[,[\].]+?/);return""===o||void 0===o||o===e?n:o},H=(e={})=>e&&0===Object.keys(e).length&&e.constructor===Object,J=e=>{const t="string"===typeof e?e:null;return t&&new Date(t).toISOString().split("T")[0]||null},Q=e=>new Promise((t=>setTimeout(t,e))),V=(e=0,t="",n="")=>e>1?n:t,B=({client:e,query:t,options:n})=>{const{skip:o}=n,i=(0,r.Z)(n,b);return o?Promise.resolve({loading:!1,skip:!0}):e.query(O({query:t},i))},K=e=>/^[a-z]{2}([-_][a-zA-Z]{2,4}){0,2}$/.test(e),X=(e,t,n)=>{const r=[{regex:t,fn:n}];return m()(r)(e)},Y=e=>JSON.stringify(e).replace("{"," ").replace("}"," ").replace(/"/g,"").replace(/,/g,", "),ee=(e="id")=>`${e}-${Math.random().toString(36).substring(2,6)}-${Math.random().toString(36).substring(2,10)}`,te=({page:{tenant:e,slug:t,siteEdition:n,pageType:r,pageNumber:o,deviceType:i,languageCode:a}={}})=>({tenant:e,slug:t,siteEdition:n,pageType:r,pageNumber:o,deviceType:i,languageCode:a}),ne=(e,t)=>t?[`_ctaSelector.${t}`]:[`${e}`]},52058:function(e,t,n){n.d(t,{Z:function(){return E}});var r=n(92809),o=n(46706),i=n(4372),a=n(36689),s=n(8056),u=n(83536),c=n(13984),p=n(49066),l=n.n(p),g=n(38070),d=n(14846),m=JSON.parse('{"J":{"V":[{"kind":"INTERFACE","name":"Link","possibleTypes":[{"name":"BreadCrumb"},{"name":"MenuItem"},{"name":"RelatedRoutesLink"},{"name":"Item"}]},{"kind":"INTERFACE","name":"DestinationRoutesLink","possibleTypes":[{"name":"CityLink"},{"name":"CountryLink"},{"name":"PropertyLink"},{"name":"StateLink"}]},{"kind":"INTERFACE","name":"FareModule","possibleTypes":[{"name":"FareModuleAggregationGroupRoute"},{"name":"FareModuleHistogram"}]},{"kind":"INTERFACE","name":"LanguageToggle","possibleTypes":[{"name":"CountryToggleSelector"},{"name":"EmptyToggleSelector"},{"name":"LanguageToggleSelector"}]}]}}'),f=n(27057);function y(e,t){var n=Object.keys(e);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(e);t&&(r=r.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),n.push.apply(n,r)}return n}const _={CityLink:{keyFields:["url","name"]},CountryLink:{keyFields:["url","name"]},CmpConfig:{keyFields:["cmpConfig",["cmp"]]},Query:{fields:{standardFareModule:{keyArgs:["id"]},sfmHospitality:{keyArgs:["id"]},pageContext:{keyArgs:["page",["tenant","siteEdition","slug"]]},weather:{keyArgs:["page",["tenant","siteEdition","slug"]]},promoWidget:{keyArgs:["id"]},layout:{keyArgs:["page",["tenant","siteEdition","slug"]]},dpaHeadline:{keyArgs:["id"]},dpaVacations:{keyArgs:["id"]}}},StandardFareModule:{keyFields:["id"],fields:{fares:{keyArgs:!1,merge(e=[],t,{args:{pageNumber:n,limit:r,urlParameters:o,nearestOriginAirport:i}}){if(!(0,f.Qr)(o)&&1===n||!(0,f.Qr)(i)&&1===n)return t;const a=(n-1)*r,s=e?e.slice(0):[];for(let u=0;u<=t.length-1;u++)s[a+u]=t[u];return s}}}},SFMHospitality:{keyFields:["id"],fields:{rates:{keyArgs:!1,merge:(e=[],t,{args:{pageNumber:n}})=>1===n?[...t]:[...e,...t]}}},DpaVacations:{keyFields:["id"],fields:{rates:{keyArgs:!1,merge:(e=[],t,{args:{pageNumber:n,limit:r,urlParameters:o}})=>(0,f.Qr)(o)||1!==n?1===n?[...t]:[...e,...t]:t}}},PromoWidget:{keyFields:["id"],fields:{offers:{keyArgs:!1,read(e,{args:{offset:t=0,limit:n=10}={}}){const r=t+n,o=e&&e.slice(t,r);if(o&&o.length>0)return o},merge(e=[],t=[],{args:{offset:n=0,limit:r=10}={}}){const o=e?e.slice(0):[],i=n+Math.min(r,null===t||void 0===t?void 0:t.length);for(let a=n;a<i;++a)o[a]=t[a-n];return o}}}}},b={};m.J.V.forEach((e=>{e.possibleTypes&&(b[e.name]=e.possibleTypes.map((e=>e.name)))}));const h=(e={})=>new d.h({possibleTypes:b,typePolicies:_}).restore(function(e){for(var t=1;t<arguments.length;t++){var n=null!=arguments[t]?arguments[t]:{};t%2?y(Object(n),!0).forEach((function(t){(0,r.Z)(e,t,n[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(n)):y(Object(n)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(n,t))}))}return e}({},e));var O=n(11585),k=n(35944),P=n(34155);function v(e,t){var n=Object.keys(e);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(e);t&&(r=r.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),n.push.apply(n,r)}return n}function C(e){for(var t=1;t<arguments.length;t++){var n=null!=arguments[t]?arguments[t]:{};t%2?v(Object(n),!0).forEach((function(t){(0,r.Z)(e,t,n[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(n)):v(Object(n)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(n,t))}))}return e}const w=new o.i(((e,t)=>(P.env.DEBUG,t(e).map((e=>e))))),$=(0,c.q)((({graphQLErrors:e,networkError:t})=>{e&&e.forEach((({message:e,locations:t,path:n})=>console.error(`[GraphQL error]: Message: ${e}, Location: ${t}, Path: ${n}`))),t&&console.error(`[Network error]: ${t}`)})),S=new o.i(((e,t)=>{let n;P.env.DEVELOPMENT_JWT?n=P.env.DEVELOPMENT_JWT:n=(0,O.LP)();if(n){const t=e.getContext().headers||{};e.setContext({headers:C(C({},t),{},{authorization:`Bearer ${n}`})})}return t(e)}));var E=({page:e,resolvers:t,typeDefs:n})=>l()((({initialState:e,ctx:r})=>new i.f({ssrMode:!1,link:o.i.from([new o.i(((e,t)=>(r&&e.setContext({ctx:r}),t(e)))),S,w,$,new u.W({delay:{initial:300,max:2e4,jitter:!0},attempts:{max:2}}),new s.A({credentials:"same-origin",uri:"https://vg-api.airtrfx.com/graphql",useGETForQueries:!1,batchMax:20,batchInterval:30})]),cache:h(e),typeDefs:n,resolvers:t})),{render:({Page:e,props:t})=>(0,k.tZ)(a.e,{client:t.apollo,children:(0,k.tZ)(e,C({},t))}),getDataFromTree:g.J})(e)},11585:function(e,t,n){n.d(t,{LP:function(){return a},o4:function(){return s},W2:function(){return u}});let r=null,o=null;function i(){o&&(clearTimeout(o),o=null)}const a=()=>r,s=e=>(r=e,e&&function(){i();const e=parseInt(30);o=setTimeout((()=>{window.location.reload()}),60*(e-1)*1e3)}(),e),u=e=>e&&e.query?e.query.jwt:null}}]);
